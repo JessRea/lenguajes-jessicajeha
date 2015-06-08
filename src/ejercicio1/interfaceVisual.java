@@ -122,13 +122,13 @@ public class interfaceVisual extends javax.swing.JFrame {
     }//GEN-LAST:event_FraseActionPerformed
 
     private void boton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton2ActionPerformed
-    Frase.getText();
-       String frase=new String(Frase.getText());
-       byte []algo=frase.getBytes();
+       Frase.getText();
+       String r=Frase.getText();
+       byte []algo=r.getBytes();
        StringBuilder builder=new StringBuilder();
        for (byte c:algo){
         builder.append((char)c);
-        r1.setText(builder.toString());
+        r2.setText(builder.toString());
     }       
     }//GEN-LAST:event_boton2ActionPerformed
 
