@@ -12,7 +12,7 @@ package MiPrimeraExcepcion;
 public class MenorEdadException extends Exception {
     
     public MenorEdadException(){
-      super ("eres un chamaco pervetido, le diré a tu mamá!!, no te puedo registrar");
+      super ("eres un chamaco pevetido, le diré a tu mamá!!, no te puedo "+ "registrar");
     } 
     
 }
