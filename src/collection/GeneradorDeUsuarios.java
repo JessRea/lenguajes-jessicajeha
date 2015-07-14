@@ -10,15 +10,19 @@ import java.util.List;
  */
 public class GeneradorDeUsuarios {
     
-    private List<Usuario>usuarios;
+    private List <Usuario> usuarios;
 
     public GeneradorDeUsuarios(){
     Usuario u1=new Usuario ("juan",42,"jc@gmail.com");
     Usuario u2=new Usuario ("Ana",43,"ana@gmail.com");
     Usuario u3=new Usuario ("Pedro",42,"pedro@gmail.com");
+    Usuario u4=new Usuario ("Pancha",60,"pancha@gmail.com");
     
     usuarios=new ArrayList<Usuario>();
-    
+    usuarios.add(u1);
+    usuarios.add(u2);
+    usuarios.add(u3);
+    usuarios.add(u4);
     }
     
     public List<Usuario> getUsuarios() {
@@ -29,4 +33,9 @@ public class GeneradorDeUsuarios {
         this.usuarios = usuarios;
     }
     
+    public String agregarUsuario(String nombre, int edad, String email){
+        Usuario u5=new  Usuario(nombre,edad,email);
+        usuarios.add(u5);
+        return "usuario agregado con exito";
+    }
 }
