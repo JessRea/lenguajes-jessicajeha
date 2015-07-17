@@ -5,6 +5,11 @@
  */
 package collection;
 
+import com.sun.org.apache.xalan.internal.xsltc.compiler.util.StringStack;
+import java.util.Collections;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author T-107
@@ -124,9 +129,6 @@ public class InterfazUsuarios extends javax.swing.JFrame {
 
         tablaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
                 {null, null, null}
             },
             new String [] {
@@ -185,10 +187,22 @@ public class InterfazUsuarios extends javax.swing.JFrame {
 
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_botonGuardarActionPerformed
 
     private void botonCargarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarUsuariosActionPerformed
         // TODO add your handling code here:
+        GeneradorDeUsuarios gen=new GeneradorDeUsuarios();
+        List <Usuario> usuarios= gen.getUsuarios();
+        Collections.sort(usuarios, new UsuarioPorNombre());
+        tablaUsuarios.setModel(new DefaultTableModel(new String[]{"Nombre","edad","email"},gen.getUsuarios().size()));
+        int fila=0;
+        for (Usuario u:usuarios){
+        tablaUsuarios.setValueAt(u.getNombre(), fila, 0);
+        tablaUsuarios.setValueAt(u.getEdad(), fila, 1);
+        tablaUsuarios.setValueAt(u.getEmail(), fila, 2);
+        fila++;
+        }
     }//GEN-LAST:event_botonCargarUsuariosActionPerformed
 
     /**
