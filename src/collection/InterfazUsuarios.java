@@ -207,23 +207,37 @@ public class InterfazUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_botonGuardarActionPerformed
 
     private void botonCargarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarUsuariosActionPerformed
-        // TODO add your handling code here:
-        GeneradorDeUsuarios gen=new GeneradorDeUsuarios();
-        List <Usuario> usuarios= gen.getUsuarios();
-        Collections.sort(usuarios, new UsuarioPorEdad());
-        tablaUsuarios.setModel(new DefaultTableModel(new String[]{"Nombre","edad","email"},gen.getUsuarios().size()));
+        int indice=comboSeleccion.getSelectedIndex();
+         GeneradorDeUsuarios gen=new GeneradorDeUsuarios();
+        List<Usuario> usuarios= gen.getUsuarios();
         int fila=0;
-        for (Usuario u:usuarios){
-        tablaUsuarios.setValueAt(u.getNombre(), fila, 0);
-        tablaUsuarios.setValueAt(u.getEdad(), fila, 1);
-        tablaUsuarios.setValueAt(u.getEmail(), fila, 2);
-        fila++;
-        }
+        if (indice==1){
+          Collections.sort(usuarios, new UsuarioPorEdad());
+        tablaUsuarios.setModel(new DefaultTableModel(new String[]{"Nombre","Edad","Email"}, gen.getUsuarios().size())); 
+        
+       
+        for(Usuario u:usuarios){
+            tablaUsuarios.setValueAt(u.getNombre(), fila, 0);
+            tablaUsuarios.setValueAt(u.getEdad(), fila, 1);
+            tablaUsuarios.setValueAt(u.getEmail(), fila, 2);
+            fila++;
+        }  
+        }else if(indice==0){
+            Collections.sort(usuarios, new UsuarioPorNombre());
+        tablaUsuarios.setModel(new DefaultTableModel(new String[]{"Nombre","Edad","Email"}, gen.getUsuarios().size())); 
+    
+        for(Usuario u:usuarios){
+            tablaUsuarios.setValueAt(u.getNombre(), fila, 0);
+            tablaUsuarios.setValueAt(u.getEdad(), fila, 1);
+            tablaUsuarios.setValueAt(u.getEmail(), fila, 2);
+            fila++;
+        }}
+        
     }//GEN-LAST:event_botonCargarUsuariosActionPerformed
 
     private void comboSeleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSeleccionActionPerformed
       botonCargarUsuarios.setEnabled(true);
-      int indice=comboSeleccion.getSelectedIndex();
+      
     }//GEN-LAST:event_comboSeleccionActionPerformed
 
     /**
