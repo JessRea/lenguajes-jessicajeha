@@ -31,7 +31,7 @@ public class ContraReloj extends javax.swing.JFrame {
             int segundos=cal.get(Calendar.SECOND);
             
             jLabel1.setText(hora + ":" + minutos + ":" + segundos);
-             //////////es con u IF if       
+             if (minutos==55)dispose();      
         }catch(Exception e){
             
         }}
