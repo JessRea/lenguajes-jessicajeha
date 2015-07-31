@@ -12,10 +12,12 @@ import java.util.Calendar;
  * @author T-107
  */
 public class ContraReloj extends javax.swing.JFrame {
-
+int x=300;
+        int y=200;
     
     public ContraReloj() {
         initComponents();
+        
         jLabel1.setText("Hola");
         Thread t1=new Thread(new Runnable(){
 
@@ -24,6 +26,7 @@ public class ContraReloj extends javax.swing.JFrame {
              while(true){
         try{
             Thread.sleep(1000);
+            setSize(x,y);
             //vamos a crear un relojito chafa
             Calendar cal=Calendar.getInstance();
             int hora=cal.get(Calendar.HOUR);
@@ -31,7 +34,9 @@ public class ContraReloj extends javax.swing.JFrame {
             int segundos=cal.get(Calendar.SECOND);
             
             jLabel1.setText(hora + ":" + minutos + ":" + segundos);
-             if (minutos==55)dispose();      
+             //if (minutos==55)dispose();      //que se cierre al min 55
+            x=x+2;
+            y=y+2;
         }catch(Exception e){
             
         }}
