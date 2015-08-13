@@ -26,7 +26,7 @@ int x=300;
              while(true){
         try{
             Thread.sleep(1000);
-            setSize(x,y);
+           // setSize(x,y);
             //vamos a crear un relojito chafa
             Calendar cal=Calendar.getInstance();
             int hora=cal.get(Calendar.HOUR);
@@ -35,8 +35,8 @@ int x=300;
             
             jLabel1.setText(hora + ":" + minutos + ":" + segundos);
              //if (minutos==55)dispose();      //que se cierre al min 55
-            x=x+2;
-            y=y+2;
+           x=x+2;
+           y=y+2;
         }catch(Exception e){
             
         }}
